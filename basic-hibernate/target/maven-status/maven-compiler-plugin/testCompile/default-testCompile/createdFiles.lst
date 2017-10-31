@@ -1,0 +1,7 @@
+com\vision\basic\dao\TestUserDao.class
+com\vision\basic\test\util\EntitiesHelper.class
+com\vision\basic\test\util\DbUtil.class
+com\vision\basic\test\util\AbstractDbUnitTestCase.class
+com\vision\basic\dao\IUserDao.class
+com\vision\basic\dao\UserDao.class
+com\vision\basic\model\User.class
