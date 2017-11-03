@@ -45,5 +45,16 @@ public class Group {
 	public void setDescr(String descr) {
 		this.descr = descr;
 	}
+	public Group() {
+	}
+	
+	
+	public Group(int id, String name) {
+		super();
+		this.id = id;
+		this.name = name;
+	}
+	
+	
 	
 }

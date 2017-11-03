@@ -138,72 +138,7 @@ public class TestUserDao extends AbstractDbUnitTestCase{
 		EntitiesHelper.assertUsers(eus, aus);
 	}
 	
-	@Test
-	public void testAddUserGroup() throws DatabaseUnitException, SQLException {
-		Group group = groupDao.load(1);
-		User user = userDao.load(1);
-		userDao.addUserGroup(user, group);
-		UserGroup ur = userDao.loadUserGroup(1, 1);
-		assertNotNull(ur);
-		assertEquals(ur.getGroup().getId(), 1);
-		assertEquals(ur.getUser().getId(), 1);
-	}
 	
-	@Test
-	public void testAddUserRole() throws DatabaseUnitException, SQLException {
-		Role role = roleDao.load(1);
-		User user = userDao.load(1);
-		userDao.addUserRole(user, role);
-		UserRole ur = userDao.loadUserRole(1, 1);
-		assertNotNull(ur);
-		assertEquals(ur.getRole().getId(), 1);
-		assertEquals(ur.getUser().getId(), 1);
-	}
-	
-	@Test
-	public void testDeleteUserRoles() throws DatabaseUnitException, SQLException {
-		int uid = 2;
-		userDao.deleteUserRoles(uid);
-		List<Role> urs = userDao.listUserRoles(uid);
-		assertTrue(urs.size()<=0);
-	}
-	
-	@Test
-	public void testDeleteUserGroups() throws DatabaseUnitException, SQLException {
-		int uid = 2;
-		userDao.deleteUserGroups(uid);
-		List<Group> ugs = userDao.listUserGroups(uid);
-		assertTrue(ugs.size()<=0);
-	}
-	
-	@Test
-	public void testDeleteUserRole() throws DatabaseUnitException, SQLException {
-		int uid = 1;
-		int rid = 1;
-		userDao.deleteUserRole(uid,rid);
-		assertNull(userDao.loadUserRole(uid, rid));
-	}
-	
-	@Test
-	public void testDeleteUserGroup() throws DatabaseUnitException, SQLException {
-		int uid = 1;
-		int gid = 2;
-		userDao.deleteUserGroup(uid,gid);
-		assertNull(userDao.loadUserGroup(uid, gid));
-	}
-	
-	@Test
-	public void testFindUser() {
-		SystemContext.setPageOffset(0);
-		SystemContext.setPageSize(15);
-		List<User> actuals = Arrays.asList(new User(1,"admin1","123","admin1","admin1@admin.com","110",1),
-				   new User(2,"admin2","123","admin1","admin1@admin.com","110",1),
-				   new User(3,"admin3","123","admin1","admin1@admin.com","110",1));
-		Pager<User> pages = userDao.findUser();
-		assertNotNull(pages);
-		assertEquals(pages.getTotal(), 3);
-		EntitiesHelper.assertUsers(pages.getDatas(), actuals);
-	}
 	
 	@After
 	public void tearDown() throws FileNotFoundException, DatabaseUnitException, SQLException{

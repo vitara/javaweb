@@ -5,6 +5,12 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   
+  <modules>
+  	<module>../cms-core</module>
+  	<module>../cms-user</module>
+  	<module>../basic-hibernate</module>
+  </modules>
+  
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <spring.version>3.2.18.RELEASE</spring.version>
@@ -16,6 +22,12 @@
     <artifactId>basic-hibernate</artifactId>
     <version>${project.version}</version>
     </dependency>
+    <dependency>
+    	<groupId>${project.groupId}</groupId>
+    	<artifactId>cms-core</artifactId>
+    	<version>${project.version}</version>
+    </dependency>
+    
   		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
     <dependency>
     <groupId>org.hibernate</groupId>
