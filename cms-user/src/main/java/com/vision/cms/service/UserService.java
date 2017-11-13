@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.vision.cms.dao.IGroupDao;
 import com.vision.cms.dao.IRoleDao;
 import com.vision.cms.dao.IUserDao;
+import com.vision.cms.model.CmsException;
 import com.vision.cms.model.Group;
 import com.vision.cms.model.Role;
 import com.vision.cms.model.User;
@@ -47,8 +48,14 @@ public class UserService implements IUserService {
 
 	@Override
 	public void add(User user, Integer[] rids, Integer[] gids) {
-		// TODO Auto-generated method stub
-
+		User tu=userDao.loadByUsername(user.getUsername());
+		if(tu!=null) throw new CmsException("添加的用户对象已经存在，不能添加");
+		userDao.add(user);
+		for(Integer rid:rids){
+			Role role=roleDao.load(rid);
+			if(role==null) throw new CmsException("要添加的角色不存在");
+			
+		}
 	}
 
 	@Override

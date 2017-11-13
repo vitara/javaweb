@@ -17,29 +17,29 @@ import com.vision.basic.model.User;
 public class UserDao extends BaseDao<User> implements IUserDao {
 
 	@Override
-	public List<User> listBySql(String string, Object[] objects, Class<User> class1, boolean b) {
+	public List<User> listUserBySql(String string, Object[] objects, Class<User> class1, boolean b) {
 		// TODO Auto-generated method stub
-		return null;
+		return super.listBySql(string, objects, class1, b);
 	}
 
 	@Override
-	public List<User> listBySql(String string, Object[] objects, Map<String, Object> alias, Class<User> class1,
+	public List<User> listUserBySql(String string, Object[] objects, Map<String, Object> alias, Class<User> class1,
 			boolean b) {
 		// TODO Auto-generated method stub
-		return null;
+		return super.listBySql(string, objects,alias,class1, b);
 	}
 
 	@Override
-	public Pager<User> findBySql(String string, Object[] objects, Class<User> class1, boolean b) {
+	public Pager<User> findUserBySql(String string, Object[] objects, Class<User> class1, boolean b) {
 		// TODO Auto-generated method stub
-		return null;
+		return super.findBySql(string, objects, class1, b);
 	}
 
 	@Override
-	public Pager<User> findBySql(String string, Object[] objects, Map<String, Object> alias, Class<User> class1,
+	public Pager<User> findUserBySql(String string, Object[] objects, Map<String, Object> alias, Class<User> class1,
 			boolean b) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return super.findBySql(string, objects, alias, class1, b);
 	}
 	
 	

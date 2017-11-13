@@ -77,6 +77,17 @@ public interface IUserDao extends IBaseDao<User>{
 	 * @return
 	 */
 	public List<User> listGroupUsers(int gid);
-	
+	/**
+	 * 添加用户角色对象
+	 * @param user
+	 * @param role
+	 */
+	public void addUserRole(User user,Role role);
+	/**
+	 * 添加用户组对象
+	 * @param user
+	 * @param group
+	 */
+	public void addUserGroup(User user,Group group);
 	
 }
