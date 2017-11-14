@@ -70,4 +70,25 @@ public class UserDao extends BaseDao<User> implements IUserDao {
 		return this.list(hql,gid);
 	}
 
+	@Override
+	public void addUserRole(User user, Role role) {
+		UserRole ur = this.loadUserRole(user.getId(), role.getId());
+		if(ur!=null) return;
+		ur = new UserRole();
+		ur.setRole(role);
+		ur.setUser(user);
+		this.getSession().save(ur);
+		
+	}
+
+	@Override
+	public void addUserGroup(User user, Group group) {
+		UserGroup ug = this.loadUserGroup(user.getId(), group.getId());
+		if(ug!=null) return;
+		ug = new UserGroup();
+		ug.setGroup(group);
+		ug.setUser(user);
+		this.getSession().save(ug);
+	}
+
 }
